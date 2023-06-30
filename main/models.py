@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -9,6 +10,7 @@ class IHA(models.Model):
     model = models.CharField(max_length=500)
     agirlik = models.CharField(max_length=500)
     category = models.ForeignKey("Category", on_delete=models.CASCADE, null=True, blank=True, verbose_name="Kategori")
+    is_rented = models.BooleanField(default=False)  # "kiralandı" özelliği
 
     date_created = models.DateTimeField(auto_now_add=True)
 
@@ -29,4 +31,13 @@ class Category(models.Model):
     class Meta:
         verbose_name=("Kategoriler")
         verbose_name_plural=("Kategoriler")
+
+class RentalRecord(models.Model):
+    drone = models.ForeignKey(IHA, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+
+    def __str__(self):
+        return self.drone.marka + " " + self.drone.model + " - " + self.user.username
 

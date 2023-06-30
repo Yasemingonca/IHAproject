@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,6 +54,7 @@
             background-color: #45a049;
         }
     </style>
+
 </head>
 <body>
     <div class="container">
@@ -66,5 +68,7 @@
             <input type="submit" value="Login">
         </form>
     </div>
+<!-- Check for messages and display modal if any messages exist -->
+{% include 'alert.html' %}
 </body>
 </html>

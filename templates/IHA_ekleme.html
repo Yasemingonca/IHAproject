@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İHA Ekle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">İHA Ekle</h2>
+   <div class="container" style="align-items: center; justify-content: center; display: flex;">
+        <form method="POST" action="{% url 'main:iha_add' %}">
+        {% csrf_token %}
+     {% for foo in form %}
+            <label for="{{ foo.id_for_label }}">{{ foo.label }}</label>
+            {{ foo }}
+            {{ foo.errors }}
+
+            {% if foo.help_text %}
+                <small style="display: block; margin-bottom: 10px;">{{ foo.help_text }}</small>
+            {% endif %}
+        {% endfor %}
+         <input type="submit" value="Ekle">
+    </form>
+   </div>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+</body>
+</html>
