@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İHA Ekleme</title>
+</head>
+<body>
+    <h1>İHA Ekleme</h1>
+    <form method="post" action="{% url 'main:iha_add' %}">
+        {% csrf_token %}
+        <label for="brand">Marka:</label>
+        <input type="text" id="brand" name="brand"><br><br>
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model"><br><br>
+        <label for="weight">Ağırlık:</label>
+        <input type="text" id="weight" name="weight"><br><br>
+        <label for="category">Kategori:</label>
+        <input type="text" id="category" name="category"><br><br>
+        <input type="submit" value="Ekle">
+    </form>
+</body>
+</html>

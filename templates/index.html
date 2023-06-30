@@ -73,36 +73,33 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>İHA Yönetimi</h2>
-
-        <div class="widget">
-            <div class="widget-title">İHA Listele</div>
+<div class="container">
+    <h2>İHA Yönetimi</h2>
+    <a href="{% url 'main:IHA_listeleme' %}" style="text-decoration: none; color: black;">
+        <div class="widget" style="background-color: #a66e6e">
+             <div class="widget-title" style="text-align: center">İHA LİSTELE</div>
             <div class="widget-content">
-                <p>Burada mevcut İHA'ları listeleyen bir widget olabilir.</p>
-            </div>
-            <a href="#" class="button">Listele</a>
-        </div>
 
-        <div class="widget">
-            <div class="widget-title">İHA Kayıt Et</div>
+            </div>
+        </div>
+    </a>
+
+    <a href="{% url 'main:iha_add' %}" style="text-decoration: none; color: black;">
+        <div class="widget" style="background-color: #987a8a">
+            <div class="widget-title" style="text-align: center">İHA KAYIT ET</div>
             <div class="widget-content">
-                <p>Burada yeni İHA kaydı yapabilen bir widget olabilir.</p>
-            </div>
-            <a href="#" class="button">Kayıt Et</a>
-        </div>
 
-        <div class="widget">
-            <div class="widget-title">Kiraladıklarım</div>
+            </div>
+        </div>
+    </a>
+
+    <a href="" style="text-decoration: none; color: black;">
+        <div class="widget" style="background-color: #987a7a">
+            <div class="widget-title" style="text-align: center">KİRALADIKLARIM</div>
             <div class="widget-content">
-                <p>Burada kiraladığınız İHA'ları gösteren bir widget olabilir.</p>
-            </div>
-            <a href="#" class="button">Yaz</a>
-        </div>
 
-        <div class="button-container">
-            <a href="#">Bir şey ekle</a>
-</div>
+            </div>
+        </div>
 </div>
 
 </body>

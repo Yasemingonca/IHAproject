@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from main.models import IHA, Category
+from main.models import IHA, Category, RentalRecord
 
 
 # Register your models here.
@@ -10,3 +10,4 @@ class IhaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category)
+admin.site.register(RentalRecord)
