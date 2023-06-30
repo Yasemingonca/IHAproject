@@ -10,7 +10,7 @@ from main.models import IHA, Category, RentalRecord
 
 
 # Create your views here.
-# @login_required(login_url='user_login')
+@login_required(login_url='user_login')
 def index(request):
     return render(request, 'index.html')
 
