@@ -45,20 +45,20 @@
     </style>
 </head>
 <body>
-    <h2 style="text-align: center;">İHA Ekle</h2>
+    <h2 style="text-align: center;">İHA Güncelle</h2>
    <div class="container" style="align-items: center; justify-content: center; display: flex;">
-        <form method="POST" action="{% url 'main:iha_add' %}">
+        <form method="POST" action="{% url 'main:iha_guncelle' iha.id %}">
         {% csrf_token %}
      {% for foo in form %}
             <label for="{{ foo.id_for_label }}">{{ foo.label }}</label>
-            {{ foo }}
+            <input type="{{ foo.field.widget.input_type }}" name="{{ foo.name }}" id="{{ foo.id_for_label }}" value="{{ foo.value }}" {% if foo.field.required %}required{% endif %}>
             {{ foo.errors }}
 
             {% if foo.help_text %}
                 <small style="display: block; margin-bottom: 10px;">{{ foo.help_text }}</small>
             {% endif %}
         {% endfor %}
-         <input type="submit" value="Ekle">
+         <input type="submit" value="Güncelle">
     </form>
    </div>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}

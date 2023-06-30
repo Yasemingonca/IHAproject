@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>İHA Ekle</title>
+    <title>İHA Kirala</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
         }
 
         input[type="text"],
-        input[type="number"] {
+        input[type="datetime-local"] {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
@@ -45,22 +45,19 @@
     </style>
 </head>
 <body>
-    <h2 style="text-align: center;">İHA Ekle</h2>
-   <div class="container" style="align-items: center; justify-content: center; display: flex;">
-        <form method="POST" action="{% url 'main:iha_add' %}">
+    <h2>İHA Kirala</h2>
+    <form method="POST" action="{% url 'main:iha_kirala' drone.id %}">
         {% csrf_token %}
-     {% for foo in form %}
-            <label for="{{ foo.id_for_label }}">{{ foo.label }}</label>
-            {{ foo }}
-            {{ foo.errors }}
+        <label for="user">Kiralayan Üye:</label>
+        <input type="text" id="user" name="user" value="{{ user }}" readonly>
 
-            {% if foo.help_text %}
-                <small style="display: block; margin-bottom: 10px;">{{ foo.help_text }}</small>
-            {% endif %}
-        {% endfor %}
-         <input type="submit" value="Ekle">
+        <label for="start_date">Başlangıç Tarihi ve Saati:</label>
+        <input type="datetime-local" id="start_date" name="start_date" required>
+
+        <label for="end_date">Bitiş Tarihi ve Saati:</label>
+        <input type="datetime-local" id="end_date" name="end_date" required>
+
+        <input type="submit" value="Kirala">
     </form>
-   </div>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 </body>
 </html>

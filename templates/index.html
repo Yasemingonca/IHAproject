@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>İHA Yönetimi</title>
+    <h1 style="text-align: center; color: #282a2d; font-family: Arial, sans-serif; font-size: 50px; margin-top: 50px;">Hoşgeldin {{user.username}}</h1>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url("background.jpg");
+            background-image: url("https://images.unsplash.com/photo-1508444845599-5c89863b1c44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80");
             background-repeat: no-repeat;
             background-size: cover;
             margin: 0;
@@ -93,7 +94,7 @@
         </div>
     </a>
 
-    <a href="" style="text-decoration: none; color: black;">
+    <a href="{% url 'main:my_rental' %}" style="text-decoration: none; color: black;">
         <div class="widget" style="background-color: #987a7a">
             <div class="widget-title" style="text-align: center">KİRALADIKLARIM</div>
             <div class="widget-content">
